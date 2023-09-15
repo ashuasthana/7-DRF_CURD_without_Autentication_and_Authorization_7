@@ -22,8 +22,11 @@ router=routers.DefaultRouter()
 # router.register('api',views.EmployeeModelViewSetCBV,basename='api')
 router.register('api',views.EmployeeModelViewSetCBV)
 
+#for authentication 'rest_framework.authtoken' modules 'views' imported 
+from rest_framework.authtoken import views 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('get-api-token/',views.obtain_auth_token,name='get-api-token')
 
 ]
